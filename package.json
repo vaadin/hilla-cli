@@ -1,0 +1,26 @@
+{
+  "name": "@hilla/cli",
+  "version": "1.0.0",
+  "description": "A CLI for creating Hilla applications",
+  "keywords": [
+    "Hilla",
+    "cli",
+    "web application"
+  ],
+  "main": "src/hilla.js",
+  "bin": {
+    "hilla": "src/hilla.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vaadin",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "commander": "^9.1.0",
+    "decompress": "^4.2.1",
+    "inquirer": "^8.0.0",
+    "node-fetch": "^2.6.1",
+    "simple-git": "^3.5.0"
+  }
+}
