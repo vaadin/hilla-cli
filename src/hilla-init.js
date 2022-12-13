@@ -10,6 +10,10 @@ const fetch = require("node-fetch");
 program
   .option("--empty", "Create a project with no menu and one empty view")
   .option(
+    "--react",
+    "Use React UI. By default uses Lit"
+  )
+  .option(
     "--latest",
     "Use the latest release. By default uses the latest LTS release"
   )
@@ -34,14 +38,14 @@ program
     if (options.preset) {
       preset = options.preset;
     } else {
+      preset = options.react ? "react" : "hilla";
       if (options.empty) {
-        preset = "hilla-empty";
-      } else {
-        preset = "hilla";
-      }
-      if (options.push) {
-        preset += "&preset=partial-push";
-      }
+        preset += "-empty";
+      } 
+    }
+
+    if (options.push) {
+      preset += "&preset=partial-push";
     }
 
     if (options.auth) {
