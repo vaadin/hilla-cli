@@ -30,6 +30,7 @@ program
     "--preset <preset>",
     "Use the given preset you happen to know that exists"
   )
+  .option("--server <server>", "For internal testing only")
   .arguments("<projectName>")
   .action(async function (projectName) {
     const options = program.opts();
@@ -73,16 +74,15 @@ program
     console.log(`Creating application '${projectName}'`);
 
     try {
-      const response = await fetch(
-        `https://start.vaadin.com/dl?preset=${preset}&projectName=${projectName}`,
-        {
-          headers: {
-            "User-Agent": `Hilla CLI`,
-            method: "GET",
-            "Accept-Encoding": "gzip",
-          },
-        }
-      );
+      const host = options.server || "start.vaadin.com";
+      const url = `https://${host}/dl?preset=${preset}&projectName=${projectName}`;
+      const response = await fetch(url, {
+        headers: {
+          "User-Agent": `Hilla CLI`,
+          method: "GET",
+          "Accept-Encoding": "gzip",
+        },
+      });
       if (!response.ok) {
         if (response.status == 404) {
           console.error("Preset not found");
