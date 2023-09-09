@@ -9,16 +9,17 @@ const fetch = require("node-fetch");
 
 program
   .option("--empty", "Create a project with no menu and one empty view")
-  .option(
-    "--react",
-    "Use React UI. By default uses Lit"
-  )
+  .option("--react", "Use React for the UI - this is the default")
+  .option("--lit", "Use Lit for the UI")
   .option(
     "--latest",
     "Use the latest release. By default uses the latest LTS release"
   )
   .option("--pre", "Use the latest pre release (if available)")
-  .option("--next", "Use the pre release for the next major version (if available)")
+  .option(
+    "--next",
+    "Use the pre release for the next major version (if available)"
+  )
   .option("--auth", "Add authentication support to the application")
   .option("--push", "Add experimental push support")
   .option(
@@ -38,10 +39,14 @@ program
     if (options.preset) {
       preset = options.preset;
     } else {
-      preset = options.react ? "react" : "hilla";
+      if (options.lit) {
+        preset = "hilla";
+      } else {
+        preset = "react";
+      }
       if (options.empty) {
         preset += "-empty";
-      } 
+      }
     }
 
     if (options.push) {
