@@ -13,7 +13,7 @@ program
   .option("--lit", "Use Lit for the UI")
   .option(
     "--latest",
-    "Use the latest release. By default uses the latest LTS release"
+    "Use the latest release - this is the default"
   )
   .option("--pre", "Use the latest pre release (if available)")
   .option(
@@ -21,7 +21,7 @@ program
     "Use the pre release for the next major version (if available)"
   )
   .option("--auth", "Add authentication support to the application")
-  .option("--push", "Add experimental push support")
+  .option("--push", "Add push support / reactive endpoints to the application")
   .option(
     "--git",
     "Initialize a Git repository for the project and commit the initial files"
