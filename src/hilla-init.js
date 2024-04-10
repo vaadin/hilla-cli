@@ -8,7 +8,7 @@ const program = require("commander");
 const fetch = require("node-fetch");
 
 program
-  .option("--empty", "Create a project with no menu and one empty view")
+  .option("--empty", "Create a project with no menu and no views")
   .option("--react", "Use React for the UI - this is the default")
   .option("--lit", "Use Lit for the UI")
   .option(
