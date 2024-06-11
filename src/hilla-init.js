@@ -7,6 +7,10 @@ const decompress = require("decompress");
 const program = require("commander");
 const fetch = require("node-fetch");
 
+console.warn();
+console.warn("@hilla/cli is deprecated. Use 'npm init vaadin' to create new projects");
+console.warn();
+
 program
   .option("--empty", "Create a project with no menu and no views")
   .option("--react", "Use React for the UI - this is the default")
